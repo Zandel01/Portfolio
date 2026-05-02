@@ -10,6 +10,7 @@ import { Linkedin, Github, Twitter, Instagram, Menu, X } from 'lucide-react';
 const ROLES = ["i'm a student", "i luv color blue", "i luv watching anime"];
 
 export default function App() {
+  console.log("App rendering...");
   const [roleIndex, setRoleIndex] = useState(0);
   const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
