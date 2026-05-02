@@ -49,7 +49,7 @@ export default function App() {
           playsInline
           className="absolute min-w-full min-h-full object-cover opacity-60"
         >
-          <source src="/bg.mp4" type="video/mp4" />
+          <source src="https://assets.mixkit.co/videos/preview/mixkit-fire-sparks-and-embers-in-the-dark-40018-large.mp4" type="video/mp4" />
         </video>
         {/* Dark overlay for readability */}
         <div className="absolute inset-0 bg-black/50" />
@@ -116,7 +116,7 @@ export default function App() {
       </AnimatePresence>
 
       {/* Hero Section */}
-      <main className="relative z-10 w-full min-h-screen flex items-center pt-32 pb-20 lg:pt-0 lg:pb-0 px-6 md:px-16 lg:px-24 container mx-auto">
+      <main id="home" className="relative z-10 w-full min-h-screen flex items-center pt-32 pb-20 lg:pt-0 lg:pb-0 px-6 md:px-16 lg:px-24 container mx-auto">
         <div className="flex flex-col lg:flex-row items-center justify-center lg:justify-between gap-12 lg:gap-20 w-full max-w-7xl mx-auto">
           
           {/* Portrait Container */}
@@ -139,7 +139,7 @@ export default function App() {
               <div 
                 className="w-full h-full bg-cover bg-center grayscale brightness-75 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-1000 transform lg:group-hover:scale-105"
                 style={{ 
-                  backgroundImage: `url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400&h=600&auto=format&fit=crop')`,
+                   backgroundImage: `url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400&h=600&auto=format&fit=crop')`,
                 }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none opacity-80" />
@@ -211,6 +211,95 @@ export default function App() {
           </div>
         </div>
       </main>
+
+      {/* Services Section */}
+      <section id="services" className="relative z-10 py-32 px-6 md:px-16 lg:px-24 bg-zinc-950/50 backdrop-blur-sm">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col items-center text-center mb-20 space-y-4">
+            <h2 className="text-brand-red uppercase tracking-[0.3em] text-sm font-bold">Services</h2>
+            <h3 className="text-3xl md:text-5xl font-bold">What I Do Best</h3>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              { title: 'Web Design', desc: 'Crafting pixel-perfect, visually stunning interfaces.' },
+              { title: 'Development', desc: 'Building responsive, high-performance web applications.' },
+              { title: 'AI Integration', desc: 'Implementing smart features and LLM solutions.' }
+            ].map((service, i) => (
+              <div key={i} className="group p-8 border border-zinc-900 bg-black/40 rounded-2xl hover:border-brand-red/30 transition-all duration-500">
+                <div className="w-12 h-12 bg-brand-red/10 rounded-lg mb-6 flex items-center justify-center text-brand-red group-hover:scale-110 transition-transform">
+                  <div className="w-2 h-2 bg-brand-red rounded-full animate-pulse" />
+                </div>
+                <h4 className="text-xl font-bold mb-4">{service.title}</h4>
+                <p className="text-zinc-500 leading-relaxed text-sm">{service.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Skills Section */}
+      <section id="skills" className="relative z-10 py-32 px-6 md:px-16 lg:px-24">
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-20">
+          <div className="lg:w-1/2 space-y-8">
+            <h2 className="text-brand-red uppercase tracking-[0.3em] text-sm font-bold">My Expertise</h2>
+            <h3 className="text-4xl md:text-5xl font-bold leading-tight">Elevating Experiences Through Code</h3>
+            <p className="text-zinc-400 max-w-md">
+              Specialized in modern web technologies and user-centric design principles to build products that stand out.
+            </p>
+          </div>
+          
+          <div className="lg:w-1/2 grid grid-cols-2 gap-6">
+            {['React', 'TypeScript', 'Tailwind', 'Motion', 'Node.js', 'Firebase'].map((skill, i) => (
+              <div key={i} className="flex items-center gap-4 p-5 border border-zinc-900 rounded-xl hover:bg-zinc-900/50 transition-colors">
+                <div className="w-1.5 h-1.5 bg-brand-red rounded-full" />
+                <span className="font-medium text-zinc-300">{skill}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Experience Section */}
+      <section id="experience" className="relative z-10 py-32 px-6 md:px-16 lg:px-24 bg-zinc-950/50 backdrop-blur-sm">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col items-center text-center mb-20 space-y-4">
+            <h2 className="text-brand-red uppercase tracking-[0.3em] text-sm font-bold">Timeline</h2>
+            <h3 className="text-3xl md:text-5xl font-bold">Experience & Education</h3>
+          </div>
+
+          <div className="space-y-6 max-w-4xl mx-auto">
+            {[
+              { year: '2024 - Present', role: 'Full Stack Student', org: 'Tech University' },
+              { year: '2023 - 2024', role: 'UI/UX Designer', org: 'Freelance' },
+              { year: '2022 - 2023', role: 'Frontend Intern', org: 'Creative Agency' }
+            ].map((item, i) => (
+              <div key={i} className="flex flex-col md:flex-row md:items-center gap-4 md:gap-12 p-8 border border-zinc-900 rounded-2xl group hover:border-zinc-700 transition-all">
+                <div className="text-brand-red font-mono text-sm uppercase tracking-wider md:w-32">{item.year}</div>
+                <div className="flex-1">
+                  <h4 className="text-xl font-bold group-hover:text-brand-red transition-colors">{item.role}</h4>
+                  <p className="text-zinc-500 font-medium text-sm">{item.org}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Footer / Contact */}
+      <footer id="contact" className="relative z-10 py-20 px-6 md:px-16 lg:px-24 border-t border-zinc-900">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
+          <div className="text-2xl font-bold tracking-tight text-brand-red">Alex</div>
+          <div className="text-zinc-600 text-sm">© 2026 Alex. Build for performance.</div>
+          <div className="flex gap-6">
+            {[Github, Twitter, Instagram].map((Icon, i) => (
+              <a key={i} href="#" className="text-zinc-600 hover:text-white transition-colors">
+                <Icon size={20} />
+              </a>
+            ))}
+          </div>
+        </div>
+      </footer>
 
       {/* Vertical Decorative Branding */}
       <div className="fixed right-6 bottom-12 vertical-text text-[9px] tracking-[0.6em] font-mono text-zinc-800 uppercase pointer-events-none select-none z-20 hidden md:block">
